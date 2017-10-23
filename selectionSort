@@ -1,0 +1,47 @@
+
+def idxLeastEle(list,sIdx,fIdx):
+    '''
+    Objective: To return the index of least element in list
+    Input parameters: list
+                      sIdx: starting index of list
+                      fIdx: final index of list
+    return value: index of least element in list
+    '''
+    #approach: using recursion
+        
+    if(sIdx==fIdx):
+        return sIdx
+    elif(list[sIdx]<list[fIdx]):
+        return idxLeastEle(list,sIdx,fIdx-1)
+    else:
+        return idxLeastEle(list,sIdx+1,fIdx)
+
+
+def selSort(list,stIdx=0):
+    '''
+    Objective: To sort elements of list and print the sorted list 
+    Input parameters: list
+                      stIdx: starting index of list
+    return value: none
+    '''
+    #approach: using recursion
+    
+    LEidx=idxLeastEle(list,stIdx,len(list)-1)
+    list[LEidx],list[stIdx]=list[stIdx],list[LEidx]
+    if(stIdx+1!=len(list)-1):
+        return selSort(list,stIdx+1)
+    else:
+        print("The sorted list is : ",list)    
+    
+        
+def main():
+    '''
+    Objective: To sort elements of list using function selSort
+    '''
+
+    list=[int(x) for x in input("Enter the list : ").split()]
+    selSort(list)
+     
+
+if __name__=='__main__':
+    main()

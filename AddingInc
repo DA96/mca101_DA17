@@ -1,0 +1,36 @@
+#Adding 2 numbers recursively using increment function
+
+def increment(num):
+    '''
+    Objective: to increment a number by 1
+    input :
+          num: number
+    return value : incremented number
+    approach : return number+1
+    '''
+    return num+1
+
+def sum2(num1,num2):
+    '''
+    Objective: to calculate sum of two numbers
+    input parameters:
+                     num1 : number1
+                     num2 : number2
+    return value : sum of 2 numbers
+    approach: use increment function to add two numbers recursively
+    '''
+    assert num1>=0 and num2>=0
+    if num2==0:
+        return num1
+    else:
+        return sum2(increment(num1),num2-1)
+
+def main():
+
+     #Appoach : to compute sum using functions increment and sum2
+     n1=int(input('Enter first number: '))
+     n2=int(input('Enter second number: '))
+     print('The sum of two numbers is ',sum2(n1,n2))
+
+if __name__=='__main__':
+    main()
